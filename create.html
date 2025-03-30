@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Your Account</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      /* Blue and white gradient background */
+      background: linear-gradient(to bottom, #ffffff, #cce5ff);
+      color: #333;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #0056b3;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input, select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #004085;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Create Your Account</h1>
+    <form id="createAccountForm">
+      <label for="lastname">Last Name:</label>
+      <input type="text" id="lastname" name="lastname" required>
+      
+      <label for="firstname">First Name:</label>
+      <input type="text" id="firstname" name="firstname" required>
+      
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
+      
+      <label for="idnumber">ID Number:</label>
+      <input type="text" id="idnumber" name="idnumber" required>
+      
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="location">Select Location:</label>
+      <select id="location" name="location" required>
+        <option value="">--Select County--</option>
+        <option value="Mombasa">Mombasa</option>
+        <option value="Kwale">Kwale</option>
+        <option value="Kilifi">Kilifi</option>
+        <option value="Tana River">Tana River</option>
+        <option value="Lamu">Lamu</option>
+        <option value="Taita-Taveta">Taita-Taveta</option>
+        <option value="Garissa">Garissa</option>
+        <option value="Wajir">Wajir</option>
+        <option value="Mandera">Mandera</option>
+        <option value="Marsabit">Marsabit</option>
+        <option value="Isiolo">Isiolo</option>
+        <option value="Meru">Meru</option>
+        <option value="Tharaka-Nithi">Tharaka-Nithi</option>
+        <option value="Embu">Embu</option>
+        <option value="Kitui">Kitui</option>
+        <option value="Machakos">Machakos</option>
+        <option value="Makueni">Makueni</option>
+        <option value="Nyandarua">Nyandarua</option>
+        <option value="Nyeri">Nyeri</option>
+        <option value="Kirinyaga">Kirinyaga</option>
+        <option value="Murang'a">Murang'a</option>
+        <option value="Kiambu">Kiambu</option>
+        <option value="Turkana">Turkana</option>
+        <option value="West Pokot">West Pokot</option>
+        <option value="Samburu">Samburu</option>
+        <option value="Trans Nzoia">Trans Nzoia</option>
+        <option value="Uasin Gishu">Uasin Gishu</option>
+        <option value="Elgeyo-Marakwet">Elgeyo-Marakwet</option>
+        <option value="Nandi">Nandi</option>
+        <option value="Baringo">Baringo</option>
+        <option value="Laikipia">Laikipia</option>
+        <option value="Nakuru">Nakuru</option>
+        <option value="Narok">Narok</option>
+        <option value="Kajiado">Kajiado</option>
+        <option value="Kericho">Kericho</option>
+        <option value="Bomet">Bomet</option>
+        <option value="Kakamega">Kakamega</option>
+        <option value="Vihiga">Vihiga</option>
+        <option value="Bungoma">Bungoma</option>
+        <option value="Busia">Busia</option>
+        <option value="Siaya">Siaya</option>
+        <option value="Kisumu">Kisumu</option>
+        <option value="Homa Bay">Homa Bay</option>
+        <option value="Migori">Migori</option>
+        <option value="Nyamira">Nyamira</option>
+      </select>
+      
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+      
+      <label for="gender">Select Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="">--Select Gender--</option>
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+      </select>
+      
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+  
+  <script>
+    document.getElementById('createAccountForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Process and store the form data in localStorage
+      const formData = {
+        lastname: document.getElementById('lastname').value,
+        firstname: document.getElementById('firstname').value,
+        phone: document.getElementById('phone').value,
+        idnumber: document.getElementById('idnumber').value,
+        email: document.getElementById('email').value,
+        location: document.getElementById('location').value,
+        dob: document.getElementById('dob').value,
+        gender: document.getElementById('gender').value
+      };
+      localStorage.setItem('userAccount', JSON.stringify(formData));
+      
+      // Redirect to ran.html after sign up
+      window.location.href = 'ran.html';
+    });
+  </script>
+</body>
+</html>
+
