@@ -6,7 +6,7 @@
   <title>Welcome to Hakika Credit</title>
   
   <!-- PWA Manifest -->
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   
   <!-- iOS Support -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -80,10 +80,11 @@
       padding: 12px 24px;
       background-color: #0056b3;
       color: #fff;
-      text-decoration: none;
+      border: none;
       border-radius: 4px;
       font-size: 1em;
       margin-top: 20px;
+      cursor: pointer;
       transition: background-color 0.3s ease;
     }
     .btn:hover {
@@ -100,8 +101,7 @@
   <div class="container">
     <header>
       <!-- Replace "logo.png" with the actual path to your logo file -->
-      <img src="/logo.png" alt="Company Logo">
-
+    
     </header>
     <section class="welcome-section">
       <h1>Welcome to Hakika Credit</h1>
@@ -118,10 +118,17 @@
       </ol>
     </section>
     <!-- Get Started Button -->
-    <a href="create.html" class="btn">Get Started</a>
+    <button id="getStartedBtn" class="btn">Get Started</button>
     <footer>
       <p>&copy; 2025 Hakika Credit. All rights reserved.</p>
     </footer>
   </div>
+
+  <!-- JavaScript to load create.html when the button is clicked -->
+  <script>
+    document.getElementById("getStartedBtn").addEventListener("click", function() {
+      window.location.href = "create.html";
+    });
+  </script>
 </body>
 </html>
