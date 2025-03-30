@@ -1,7 +1,7 @@
 {
     "name": "Hakika Credit",
     "short_name": "Hakika",
-    "start_url": "/index.html",
+    "start_url": "/firstpage.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#0056b3",
