@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: white;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Signup</h2>
+        <form id="signupForm">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" required>
+            
+            <label for="mpesa">M-Pesa Account</label>
+            <input type="text" id="mpesa" required>
+            
+            <label for="idNumber">ID Number</label>
+            <input type="text" id="idNumber" required>
+            
+            <label for="county">County</label>
+            <select id="county" required>
+                <option value="">Select County</option>
+                <option value="Nairobi">Nairobi</option>
+                <option value="Mombasa">Mombasa</option>
+                <option value="Kisumu">Kisumu</option>
+                <option value="Nakuru">Nakuru</option>
+                <option value="Kiambu">Kiambu</option>
+                <option value="Uasin Gishu">Uasin Gishu</option>
+                <option value="Machakos">Machakos</option>
+                <option value="Nyeri">Nyeri</option>
+                <option value="Meru">Meru</option>
+                <option value="Bungoma">Bungoma</option>
+                <option value="Kakamega">Kakamega</option>
+                <option value="Narok">Narok</option>
+                <option value="Kisii">Kisii</option>
+                <option value="Turkana">Turkana</option>
+                <option value="Garissa">Garissa</option>
+                <option value="Embu">Embu</option>
+                <option value="Kericho">Kericho</option>
+                <option value="Laikipia">Laikipia</option>
+                <option value="Homabay">Homabay</option>
+                <option value="Baringo">Baringo</option>
+                <option value="Vihiga">Vihiga</option>
+                <option value="Taita Taveta">Taita Taveta</option>
+                <option value="West Pokot">West Pokot</option>
+                <option value="Trans Nzoia">Trans Nzoia</option>
+                <option value="Nyandarua">Nyandarua</option>
+                <option value="Siaya">Siaya</option>
+                <option value="Migori">Migori</option>
+                <option value="Mandera">Mandera</option>
+                <option value="Marsabit">Marsabit</option>
+                <option value="Isiolo">Isiolo</option>
+                <option value="Kitui">Kitui</option>
+                <option value="Kajiado">Kajiado</option>
+                <option value="Samburu">Samburu</option>
+                <option value="Nyamira">Nyamira</option>
+                <option value="Elgeyo Marakwet">Elgeyo Marakwet</option>
+                <option value="Tharaka Nithi">Tharaka Nithi</option>
+                <option value="Nandi">Nandi</option>
+                <option value="Bomet">Bomet</option>
+                <option value="Lamu">Lamu</option>
+                <option value="Tana River">Tana River</option>
+            </select>
+            
+            <label for="gender">Gender</label>
+            <select id="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            
+            <button type="button" onclick="saveData()">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        function saveData() {
+            let userData = {
+                fullName: document.getElementById("fullName").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value,
+                mpesa: document.getElementById("mpesa").value,
+                idNumber: document.getElementById("idNumber").value,
+                county: document.getElementById("county").value,
+                gender: document.getElementById("gender").value
+            };
+            
+            for (let key in userData) {
+                if (userData[key] === "") {
+                    alert("Please fill in all fields before proceeding.");
+                    return;
+                }
+            }
+            
+            localStorage.setItem("userInfo", JSON.stringify(userData));
+            alert("Signup successful!");
+            window.location.href = "personal.html";
+        }
+    </script>
+</body>
+</html>

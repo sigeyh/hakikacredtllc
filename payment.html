@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Information</title>
+  <link rel="stylesheet" href="main.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .payment-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+      text-align: left; /* Align details to the left */
+    }
+    .info {
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+    .btn {
+      padding: 10px 20px;
+      background-color: #28a745;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Payment Information</h2>
+    <div class="payment-box">
+      <p class="info">Loan amount: <span id="infoLoanAmount">KES 0</span></p>
+      <p class="info">Settlement amount: <span id="infoSettlementAmount">KES 0</span></p>
+      <p class="info">Savings amount: <span id="infoSavingsAmount">KES 0</span></p>
+      <!-- New fields for user details -->
+      <p class="info">Name: <span id="userName">N/A</span></p>
+      <p class="info">Phone: <span id="userPhone">N/A</span></p>
+      <button class="btn" onclick="proceedToUser()">Proceed</button>
+    </div>
+  </div>
+
+  <script>
+    // Retrieve and display stored loan-related data
+    document.getElementById("infoLoanAmount").textContent = "KES " + localStorage.getItem("loanAmount");
+    document.getElementById("infoSettlementAmount").textContent = "KES " + localStorage.getItem("settlementAmount");
+    document.getElementById("infoSavingsAmount").textContent = "KES " + localStorage.getItem("savingsAmount");
+
+    // Retrieve and display user account details stored from create.html
+    const accountData = JSON.parse(localStorage.getItem("userAccount"));
+    if (accountData) {
+      // Combine first and last name
+      const fullName = accountData.firstname + " " + accountData.lastname;
+      document.getElementById("userName").textContent = fullName;
+      document.getElementById("userPhone").textContent = accountData.phone;
+    }
+
+    function clearStorage() {
+      localStorage.clear();
+      alert("Payment data cleared!");
+      window.location.href = "index.html"; // Redirect back to loan page
+    }
+
+    function proceedToUser() {
+      window.location.href = "user.html"; // Redirect to user page
+    }
+  </script>
+  
+  <!-- Code injected by live-server -->
+  <script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+    // ]]>
+  </script>
+</body>
+</html>

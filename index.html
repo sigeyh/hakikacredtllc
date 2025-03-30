@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LendPlus - Loan Application</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .hero {
+            background: #f4f8ff;
+            text-align: center;
+            padding: 20px;
+        }
+        .loan-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .advantages, .how-to, .reviews {
+            padding: 40px 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container d-flex justify-content-between">
+            <a class="navbar-brand" href="#">Inuka<span style="color: gold;">Credit</span></a>
+            <button class="btn btn-warning">Log in</button>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h2>Get first loan online within ✨ 15 minutes</h2>
+        <p>Fast and safe apply</p>
+    </div>
+
+    <div class="container">
+        <div class="loan-box text-center">
+            <h4>Select the loan amount</h4>
+            <input type="range" class="form-range" min="1000" max="15000" step="1000" id="loanRange">
+            <p>Loan amount: <span id="loanValue">KES 1000</span></p>
+            <p>Settlement amount: <span id="settlementAmount">KES 1250</span></p>
+            <button class="btn btn-warning w-100">Apply for a loan</button>
+        </div>
+    </div>
+
+    <div class="advantages container">
+        <h3 class="text-center">Our advantages</h3>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h5>Profitable</h5>
+                <p>Apply anywhere, only one document needed</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h5>Reliable</h5>
+                <p>Confidentiality and protection of your data</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h5>Simple</h5>
+                <p>Money transferred instantly to your account</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="how-to container">
+        <h3 class="text-center">How to borrow money</h3>
+        <ol>
+            <li>Leave a request on app</li>
+            <li>Wait for the decision (15 minutes)</li>
+            <li>Receive money instantly</li>
+        </ol>
+        <button class="btn btn-warning w-100">Apply for a loan</button>
+    </div>
+
+    <div class="reviews container">
+        <h3 class="text-center">Customer reviews</h3>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mary Wambua</h5>
+                <p class="card-text">I applied for a loan and within 15 minutes received the money. The loan limit grows very fast!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center p-3 bg-light">
+        <p>Borrow loan online - InukaCredit</p>
+    </footer>
+
+    <script>
+        document.getElementById('loanRange').addEventListener('input', function() {
+            let value = this.value;
+            document.getElementById('loanValue').textContent = 'KES ' + value;
+            document.getElementById('settlementAmount').textContent = 'KES ' + (parseInt(value) * 1.25);
+        });
+    </script>
+</body>
+</html>

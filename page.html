@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Bonus</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: white;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            background: #ffcc00;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .support {
+            background: #0056b3;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .support a {
+            color: yellow;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Referral Bonus</h2>
+        <p>Earn 500 bonuses for each friend you invite!</p>
+        <p><strong>How it works:</strong></p>
+        <ul>
+            <li>Copy the link</li>
+            <li>Send it to your friend</li>
+            <li>Your friend will register and receive their first loan</li>
+            <li>Once the loan is fully repaid, you receive 500 bonuses</li>
+        </ul>
+        <button class="button" onclick="copyLink()">Get Link</button>
+        <p>Your achievements</p>
+        <p>Bonuses: <span id="bonuses">0</span></p>
+        <p>Link used: <span id="linkUsed">0</span></p>
+        <p>Invited: <span id="invited">0</span></p>
+        <button class="button">New loan with bonuses</button>
+        <button class="button" disabled>Receive Airtime</button>
+    </div>
+    <div class="support">
+        <p><strong>Support Service</strong><br>0709-029-000<br>Mon-Sun: 8AM-6PM</p>
+        <p><strong>Mail Address</strong><br><a href="mailto:customer@lendplus.ke">customer@lendplus.ke</a></p>
+        <p><strong>Application acceptance</strong><br>24/7</p>
+    </div>
+    <script>
+        function copyLink() {
+            navigator.clipboard.writeText("https://lendplus.ke/referral").then(() => {
+                alert("Referral link copied to clipboard!");
+            });
+        }
+    </script>
+</body>
+</html>

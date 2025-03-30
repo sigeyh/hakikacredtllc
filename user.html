@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application </title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: white;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        .timer {
+            font-size: 24px;
+            color: red;
+            margin: 20px 0;
+            display: none;
+        }
+        .support {
+            background: #0056b3;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .support a {
+            color: yellow;
+            text-decoration: none;
+        }
+        .mpesa-input {
+            width: 80%;
+            height: 100px;
+            margin: 10px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Complete application </h2>
+        <p>You can apply for a new loan in:</p>
+        <p>Your collected savings amount: <span id="collectedSavings">KES 0</span></p>
+        <button onclick="copyTill()">Click to Copy Till</button>
+        <p id="tillNumber">9824375</p>
+        <textarea id="mpesaMessage" class="mpesa-input" placeholder="Paste M-Pesa message here..."></textarea>
+        <button onclick="startTimer()">Submit</button>
+        <div class="timer" id="countdown">
+            <span id="minutes">5</span> minutes <span id="seconds">0</span> seconds to disbuse
+        </div>
+        <p>We will inform you about the decision by SMS</p>
+    </div>
+
+    <div class="support">
+        <p><strong>Support Service</strong><br><br>Mon-Sun: 8AM-6PM</p>
+        <p><strong>Application acceptance</strong><br>24/7</p>
+    </div>
+
+    <script>
+        document.getElementById("collectedSavings").textContent = "KES " + localStorage.getItem("savingsAmount");
+        
+        function copyTill() {
+            navigator.clipboard.writeText("9824375").then(() => {
+                alert("Till number copied to clipboard!");
+            });
+        }
+        
+        function startTimer() {
+            let message = document.getElementById("mpesaMessage").value;
+            if (message.trim() === "") {
+                alert("Please paste the M-Pesa message before submitting.");
+                return;
+            }
+            document.getElementById("countdown").style.display = "block";
+            let minutes = 5;
+            let seconds = 0;
+            let countdownTimer = setInterval(function() {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        clearInterval(countdownTimer);
+                        alert("You can now apply for a new loan.");
+                        return;
+                    }
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+                document.getElementById("minutes").textContent = minutes;
+                document.getElementById("seconds").textContent = seconds;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LendPlus - Loan Application</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .hero {
+            background: #f4f8ff;
+            text-align: center;
+            padding: 20px;
+        }
+        .loan-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container d-flex justify-content-between">
+            <a class="navbar-brand" href="#">Inuka<span style="color: gold;">Credit</span></a>
+            <button class="btn btn-warning">Log in</button>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h2>Get first loan online within ✨ 15 minutes</h2>
+        <p>Fast and safe apply</p>
+    </div>
+
+    <div class="container">
+        <div class="loan-box text-center">
+            <h4>Select the loan amount</h4>
+            <input type="range" class="form-range" min="1000" max="10000" step="1000" id="loanRange">
+            <p>Loan amount: <span id="loanValue">KES 1000</span></p>
+            <p>Settlement amount: <span id="settlementAmount">KES 1250</span></p>
+            <button class="btn btn-warning w-100" onclick="storeLoanData()">Apply for a loan</button>
+        </div>
+    </div>
+
+    <footer class="text-center p-3 bg-light">
+        <p>Borrow loan online - InukaCredit</p>
+    </footer>
+
+    <script>
+        // Update loan details dynamically when the user adjusts the slider
+        document.getElementById('loanRange').addEventListener('input', function() {
+            let value = this.value;
+            document.getElementById('loanValue').textContent = 'KES ' + value;
+            document.getElementById('settlementAmount').textContent = 'KES ' + (parseInt(value) * 1.25);
+        });
+
+        function storeLoanData() {
+            let loanAmount = document.getElementById('loanRange').value;
+            let settlementAmount = parseInt(loanAmount) * 1.25;
+            let savingsAmount;
+
+            if (loanAmount >= 1000 && loanAmount <= 3000) {
+                savingsAmount = Math.floor(Math.random() * (120 - 95 + 1)) + 95;
+            } else if (loanAmount >= 3001 && loanAmount <= 10000) {
+                savingsAmount = Math.floor(Math.random() * (215 - 145 + 1)) + 145;
+            } else {
+                savingsAmount = 0;
+            }
+
+            // Store data in localStorage
+            localStorage.setItem("loanAmount", loanAmount);
+            localStorage.setItem("settlementAmount", settlementAmount);
+            localStorage.setItem("savingsAmount", savingsAmount);
+
+            // Redirect to the payment page
+            window.location.href = 'payment.html';
+        }
+    </script>
+</body>
+</html>
