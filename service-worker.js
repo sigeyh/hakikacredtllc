@@ -4,7 +4,7 @@ const urlsToCache = [
   '/',
   '/firstpage.html',
   '/manifest.json',
-  '/logo.png', // Update path if needed
+  'logo.png', // Update path if needed
   '/images/icons/icon-72x72.png',
   '/images/icons/icon-96x96.png',
   '/images/icons/icon-128x128.png',
