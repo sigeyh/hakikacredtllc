@@ -2,7 +2,7 @@
 const CACHE_NAME = 'hakika-cache-v1';
 const urlsToCache = [
   '/',
-  '/index.html',
+  '/firstpage.html',
   '/manifest.json',
   '/logo.png', // Update path if needed
   '/images/icons/icon-72x72.png',
