@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Hakika Credit</title>
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- iOS Support -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Hakika Credit">
+  
+  <!-- Favicon and Icons -->
+  <link rel="icon" type="image/png" href="/images/icons/icon-72x72.png">
+  <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png">
+  
+  <!-- Theme Color for Mobile Browsers -->
+  <meta name="theme-color" content="#0056b3">
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      /* Blue and white gradient background */
+      background: linear-gradient(to bottom, #ffffff, #cce5ff);
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 20px;
+    }
+    header img {
+      width: 120px;
+      height: auto;
+    }
+    .welcome-section {
+      margin-bottom: 40px;
+    }
+    .welcome-section h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #0056b3;
+    }
+    .welcome-section p {
+      font-size: 1.2em;
+      color: #333;
+    }
+    .steps {
+      background-color: #e6f2ff;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+    .steps h2 {
+      color: #004085;
+      margin-bottom: 15px;
+    }
+    .steps ol {
+      padding-left: 20px;
+    }
+    .steps li {
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #0056b3;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 1em;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #004085;
+    }
+    footer {
+      font-size: 0.9em;
+      color: #666;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <!-- Replace "logo.png" with the actual path to your logo file -->
+      <img src="logo.png" alt="Company Logo">
+    </header>
+    <section class="welcome-section">
+      <h1>Welcome to Hakika Credit</h1>
+      <p>Get started quickly and easily by following the steps below to create your account.</p>
+    </section>
+    <section class="steps">
+      <h2>Steps to Create Your Account</h2>
+      <ol>
+        <li>Enter your personal details.</li>
+        <li>Verify your email address.</li>
+        <li>Create a secure password.</li>
+        <li>Confirm your account information.</li>
+        <li>Start enjoying our services!</li>
+      </ol>
+    </section>
+    <!-- Get Started Button -->
+    <a href="create.html" class="btn">Get Started</a>
+    <footer>
+      <p>&copy; 2023 Hakika Credit. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
